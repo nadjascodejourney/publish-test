@@ -1,0 +1,157 @@
+$primary-color: #93c5fd;
+$secondary-color: #ef4444;
+$third-color: #10b981;
+$fourth-color: #fdf4ff;
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  background-color: $primary-color;
+  color: #fff;
+  padding: 1.1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  p {
+    font-size: 14px;
+    color: $third-color;
+    font-weight: bolder;
+    text-shadow: 1px 1px rgb(255, 255, 255);
+  }
+}
+
+nav {
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    // damit ul listenpunkte genau in der Mitte stehen, hilft hier padding 0
+    padding: 0;
+  }
+
+  li {
+    a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+  }
+}
+
+.login-btn-container {
+  .login-btn {
+    background-color: $secondary-color;
+    color: #fff;
+    padding: 0.5em 1.2em;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.507);
+    border-radius: 5px;
+
+    &:hover {
+      // mit darken kann ich eine ausgewählte Farbe in SCSS dunkler machen (hier 10% dunkler)
+      background-color: darken($secondary-color, 20%);
+    }
+  }
+}
+
+// Ab hier MAIN
+// section 1
+.register-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 70vh;
+  border: 5px dotted $primary-color;
+
+  p {
+    animation: textAnime 2s infinite alternate;
+  }
+
+  .register-btn {
+    background-color: $primary-color;
+    color: #fff;
+    padding: 1.3em;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.507);
+    // transition für hover Funktion (schreibt man nicht in :hover sondern in das Gesamtelement, das bei hover etwas machen soll
+    transition: all 0.4s linear;
+
+    &:hover {
+      background-color: $secondary-color;
+      transform: scale(1.1);
+    }
+  }
+}
+
+// Textanimation für p
+@keyframes textAnime {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.2);
+  }
+}
+
+// section 2
+.feature-section {
+  background-color: $fourth-color;
+  padding: 1.5em;
+  text-align: center;
+  color: #3b82f6;
+  //   margin bottom, damit man den Inhalt noch sehen kann, auch wenn der footer fixed ist (der würde das nämlich andernfalls verdecken)
+  margin-bottom: 70px;
+
+  .feature-container {
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 50px;
+    }
+    ul.feature-list {
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+      padding: 0;
+
+      li {
+        background-color: $third-color;
+        padding: 0.7em 1.2em;
+        border-radius: 5px;
+        box-shadow: 2px 2px 2px grey;
+        color: #fff;
+      }
+    }
+  }
+}
+
+footer {
+  background-color: $primary-color;
+  color: #fff;
+  text-align: center;
+  padding: 0.5em;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 7px solid $secondary-color;
+
+  a {
+    text-decoration: none;
+    color: $secondary-color;
+  }
+}
